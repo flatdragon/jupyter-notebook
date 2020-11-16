@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  notebook:
+    build: .
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - ./notebooks/datasets:/home/jovyan/work/datasets
+      - ./notebooks/modules:/home/jovyan/work/modules
+    ports:
+      - 80:8888
+    deploy:
+      resources:
+        limits:
+          memory: 3G
